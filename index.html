@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dihtionary</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e2f;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+    }
+
+    input {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin-top: 10px;
+      background-color: #00c2ff;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #00a2d1;
+    }
+
+    #error-msg {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="password-container">
+    <h1>Enter Password</h1>
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="checkPassword()">Submit</button>
+    <p id="error-msg"></p>
+  </div>
+
+  <div id="main-content" style="display:none;">
+    <h1>Welcome to Dihtionary</h1>
+    <p>This is your mysterious, encrypted definition vault 🗝️📚.</p>
+    <p>Start adding your words here...</p>
+  </div>
+
+  <script>
+    const correctPassword = "secret123"; // Change this!
+
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      const errorMsg = document.getElementById("error-msg");
+      if (input === correctPassword) {
+        document.getElementById("password-container").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+      } else {
+        errorMsg.textContent = "Wrong password. Try again.";
+      }
+    }
+  </script>
+</body>
+</html>
